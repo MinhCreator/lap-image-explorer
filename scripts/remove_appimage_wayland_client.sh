@@ -159,10 +159,12 @@ for appimage in "${APPIMAGES[@]}"; do
   # linuxdeploy copies WebKitGTK's linked media libraries without the matching
   # runtime-loaded plugins/scanner. Remove that partial stack and selected
   # shared dependencies: #271 exposed successive GStreamer, GLib, libmount,
-  # and PCRE2 mismatches. This list follows those reports and tauri#15665; it
-  # does not guarantee compatibility with every host or cover all dependencies.
-  # The scan below handles regular files directly under the current usr/lib
-  # layout; revisit it if the bundler changes library paths or symlink layouts.
+  # and PCRE2 mismatches, and #311 showed host libmount requiring a newer
+  # libsystemd than the one bundled. This list follows those reports and
+  # tauri#15665; it does not guarantee compatibility with every host or cover
+  # all dependencies. The scan below handles regular files directly under the
+  # current usr/lib layout; revisit it if the bundler changes library paths or
+  # symlink layouts.
   host_runtime_lib_patterns=(
     'libwayland-cursor.so*'
     'libwayland-egl.so*'
@@ -179,6 +181,8 @@ for appimage in "${APPIMAGES[@]}"; do
     'libmount.so*'
     'libblkid.so*'
     'libselinux.so*'
+    'libsystemd.so*'
+    'libudev.so*'
     'libpcre2-8.so*'
     'libzstd.so*'
     'libelf.so*'
