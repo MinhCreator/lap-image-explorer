@@ -14,10 +14,6 @@
 Lap — это локальный менеджер фотографий с открытым исходным кодом, созданный для просмотра семейных альбомов, быстрого поиска старых снимков и управления огромными медиабиблиотеками без доступа к интернету.
 Это приватная альтернатива облачным сервисам: никакой принудительной загрузки, локальный поиск на базе ИИ, рабочий процесс на основе папок и бесплатное использование.
 
-- Сайт: [https://julyx10.github.io/lap/](https://julyx10.github.io/lap/)
-- Демо-видео: [https://youtu.be/RbKqNKhbVUs](https://youtu.be/RbKqNKhbVUs)
-- Конфиденциальность: [PRIVACY.md](../PRIVACY.md)
-
 ## Скачать Lap
 
 Откройте [страницу последних релизов](https://github.com/julyx10/lap/releases/latest) и скачайте файл, подходящий для вашей системы:
@@ -26,7 +22,8 @@ Lap — это локальный менеджер фотографий с от�
 | :-- | :-- | :-- |
 | **macOS (Apple Silicon / Intel)** | `_aarch64.dmg` / `_x64.dmg` | Заверено Apple (нотаризация) |
 | **Windows 10/11 (x64 / ARM64)** | `_x64_en-US.msi` / `_arm64_en-US.msi` | Без подписи — если SmartScreen блокирует загрузку, нажмите **Все равно сохранить** |
-| **Linux (amd64 / arm64)** | `_amd64.deb` / `_arm64.deb` | Для дистрибутивов на базе Debian (Ubuntu, Debian, Linux Mint и т.д.) |
+| **Linux (x64 / ARM64)** | `_amd64.deb` / `_arm64.deb` | Для дистрибутивов на базе Debian (Ubuntu, Debian, Linux Mint и т.д.) |
+| **Linux (x64 / ARM64)** | `_amd64.AppImage` / `_aarch64.AppImage` | Сделайте файл исполняемым и запустите двойным щелчком |
 
 ### macOS с Homebrew
 
@@ -136,11 +133,13 @@ Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:APPDATA\com.july
 
 ### Linux
 
-В дистрибутивах на основе Debian удалите пакет:
+Для установки из DEB удалите пакет:
 
 ```bash
 sudo apt remove lap
 ```
+
+Для установки из AppImage закройте Lap и удалите скачанный файл `.AppImage`.
 
 Затем удалите все файлы базы данных, кэша и конфигурации Lap:
 
@@ -186,9 +185,9 @@ Lap поддерживает более 60 форматов фото, RAW и в�
 | RAW-фото | CR2, CR3, CRW, NEF, NRW, ARW, SRF, SR2, RAF, RW2, ORF, PEF, DNG, SRW, RWL, MRW, 3FR, MOS, DCR, KDC, ERF, MEF, RAW, MDC |
 | Видео | MP4, MOV, M4V, MKV, AVI, FLV, TS/M2TS, WMV, WebM, 3GP/3G2, F4V, VOB, MPG/MPEG, ASF, DIVX и другие. Воспроизведение H.264 поддерживается на всех платформах с автоматической обработкой совместимости, если нативное воспроизведение недоступно. HEVC/H.265 и VP9 поддерживаются нативно в macOS. |
 
-### Примечания по воспроизведению видео в Linux
+### Воспроизведение видео в Linux
 
-В Linux Mint/Ubuntu/Debian установите эти пакеты для лучшей поддержки воспроизведения видео:
+Lap использует системные плагины GStreamer для воспроизведения видео, в том числе в AppImage. Если видео не воспроизводится в Ubuntu, Debian или Linux Mint, установите:
 
 ```bash
 sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
@@ -218,3 +217,7 @@ sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
 ## Лицензия
 
 GPL-3.0-or-later. См. [LICENSE](../LICENSE).
+
+## Конфиденциальность
+
+Подробнее об обработке данных и необязательных онлайн-сервисах читайте в [Политике конфиденциальности](../PRIVACY.md).

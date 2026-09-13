@@ -14,10 +14,6 @@
 Lap es un gestor de fotos de código abierto y local-first, diseñado para explorar álbumes familiares, encontrar fotos antiguas rápidamente y gestionar grandes bibliotecas multimedia personales sin conexión.
 Es una alternativa centrada en la privacidad frente a los servicios de fotos en la nube: sin cargas forzadas, con búsqueda local mediante IA, un flujo de trabajo basado en carpetas y de uso gratuito.
 
-- Sitio web: [https://julyx10.github.io/lap/](https://julyx10.github.io/lap/)
-- Vídeo de demostración: [https://youtu.be/RbKqNKhbVUs](https://youtu.be/RbKqNKhbVUs)
-- Privacidad: [PRIVACY.md](../PRIVACY.md)
-
 ## Descargar Lap
 
 Abra la [página de las últimas versiones](https://github.com/julyx10/lap/releases/latest) y descargue el archivo que corresponda a su sistema:
@@ -26,7 +22,8 @@ Abra la [página de las últimas versiones](https://github.com/julyx10/lap/relea
 | :-- | :-- | :-- |
 | **macOS (Apple Silicon / Intel)** | `_aarch64.dmg` / `_x64.dmg` | Notarizado por Apple |
 | **Windows 10/11 (x64 / ARM64)** | `_x64_en-US.msi` / `_arm64_en-US.msi` | Sin firmar — si SmartScreen bloquea la descarga, haga clic en **Conservar de todos modos** |
-| **Linux (amd64 / arm64)** | `_amd64.deb` / `_arm64.deb` | Para distribuciones basadas en Debian (Ubuntu, Debian, Linux Mint, etc.) |
+| **Linux (x64 / ARM64)** | `_amd64.deb` / `_arm64.deb` | Para distribuciones basadas en Debian (Ubuntu, Debian, Linux Mint, etc.) |
+| **Linux (x64 / ARM64)** | `_amd64.AppImage` / `_aarch64.AppImage` | Marque el archivo como ejecutable y haga doble clic para iniciarlo |
 
 ### macOS con Homebrew
 
@@ -136,11 +133,13 @@ Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:APPDATA\com.july
 
 ### Linux
 
-En distribuciones basadas en Debian, desinstale el paquete:
+Para instalaciones DEB, desinstale el paquete:
 
 ```bash
 sudo apt remove lap
 ```
+
+Para instalaciones AppImage, cierre Lap y elimine el archivo `.AppImage` descargado.
 
 Después elimine todos los archivos de base de datos, caché y configuración de Lap:
 
@@ -186,9 +185,9 @@ Lap admite más de 60 formatos de foto, RAW y vídeo.
 | Fotos RAW | CR2, CR3, CRW, NEF, NRW, ARW, SRF, SR2, RAF, RW2, ORF, PEF, DNG, SRW, RWL, MRW, 3FR, MOS, DCR, KDC, ERF, MEF, RAW, MDC |
 | Vídeos | MP4, MOV, M4V, MKV, AVI, FLV, TS/M2TS, WMV, WebM, 3GP/3G2, F4V, VOB, MPG/MPEG, ASF, DIVX y más. La reproducción H.264 es compatible en todas las plataformas, con procesamiento automático de compatibilidad cuando la reproducción nativa no está disponible. HEVC/H.265 y VP9 son compatibles de forma nativa en macOS. |
 
-### Notas sobre la reproducción de vídeo en Linux
+### Reproducción de vídeo en Linux
 
-En Linux Mint/Ubuntu/Debian, instale estos paquetes para obtener un mejor soporte en la reproducción de vídeo:
+Lap utiliza los complementos GStreamer del sistema para reproducir vídeos, también en el AppImage. Si los vídeos no se reproducen en Ubuntu, Debian o Linux Mint, instale:
 
 ```bash
 sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
@@ -218,3 +217,7 @@ sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
 ## Licencia
 
 GPL-3.0-o-posterior. Consulte [LICENSE](../LICENSE).
+
+## Privacidad
+
+Consulte la [Política de privacidad](../PRIVACY.md) para conocer el tratamiento de datos y los servicios en línea opcionales.

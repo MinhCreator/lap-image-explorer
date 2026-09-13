@@ -14,10 +14,6 @@
 Lap 是一款开源、本地优先的照片管理工具，帮助您轻松浏览家庭相册、快速查找旧照片，并离线管理大型个人资料库。
 它是云端照片服务的隐私替代方案：无强制上传、内置本地 AI 搜索、以文件夹为中心的工作流，且完全免费使用。
 
-- 官方网站: [https://julyx10.github.io/lap/](https://julyx10.github.io/lap/)
-- 演示视频: [https://youtu.be/RbKqNKhbVUs](https://youtu.be/RbKqNKhbVUs)
-- 隐私政策: [PRIVACY.md](../PRIVACY.md)
-
 ## 下载 Lap
 
 打开 [最新版本发布页面](https://github.com/julyx10/lap/releases/latest)，下载匹配您系统的文件：
@@ -26,7 +22,8 @@ Lap 是一款开源、本地优先的照片管理工具，帮助您轻松浏览�
 | :-- | :-- | :-- |
 | **macOS (Apple Silicon / Intel)** | `_aarch64.dmg` / `_x64.dmg` | 已通过 Apple 公证 |
 | **Windows 10/11 (x64 / ARM64)** | `_x64_en-US.msi` / `_arm64_en-US.msi` | 未签名 — 如果 SmartScreen 阻止下载，请点击**仍要保留** |
-| **Linux (amd64 / arm64)** | `_amd64.deb` / `_arm64.deb` | 适用于 Debian 系发行版（Ubuntu、Debian、Linux Mint 等） |
+| **Linux (x64 / ARM64)** | `_amd64.deb` / `_arm64.deb` | 适用于 Debian 系发行版（Ubuntu、Debian、Linux Mint 等） |
+| **Linux (x64 / ARM64)** | `_amd64.AppImage` / `_aarch64.AppImage` | 赋予文件执行权限后，双击运行 |
 
 ### 使用 Homebrew 安装 macOS 版
 
@@ -148,11 +145,13 @@ Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:APPDATA\com.july
 
 ### Linux
 
-对于基于 Debian 的发行版，请卸载软件包：
+使用 DEB 安装的用户，请卸载软件包：
 
 ```bash
 sudo apt remove lap
 ```
+
+使用 AppImage 的用户，请退出 Lap 并删除下载的 `.AppImage` 文件。
 
 然后删除所有 Lap 数据库、缓存和配置文件：
 
@@ -198,9 +197,9 @@ Lap 支持 60+ 种照片、RAW 和视频格式。
 | RAW 照片 | CR2, CR3, CRW, NEF, NRW, ARW, SRF, SR2, RAF, RW2, ORF, PEF, DNG, SRW, RWL, MRW, 3FR, MOS, DCR, KDC, ERF, MEF, RAW, MDC |
 | 视频 | MP4, MOV, M4V, MKV, AVI, FLV, TS/M2TS, WMV, WebM, 3GP/3G2, F4V, VOB, MPG/MPEG, ASF, DIVX 等。所有平台均支持 H.264 播放；在不支持原生播放时，系统会自动进行兼容性处理。macOS 原生支持 HEVC/H.265 和 VP9。 |
 
-### Linux 视频播放备注
+### Linux 视频播放
 
-在 Linux Mint/Ubuntu/Debian 上，请安装以下软件包以获得更好的视频播放支持：
+Lap 使用系统 GStreamer 插件播放视频，AppImage 版本也不例外。如果在 Ubuntu、Debian 或 Linux Mint 上无法播放视频，请安装：
 
 ```bash
 sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
@@ -230,3 +229,7 @@ sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
 ## 开源许可证
 
 GPL-3.0-or-later。详情请参阅 [LICENSE](../LICENSE)。
+
+## 隐私
+
+有关数据处理和可选在线服务的详情，请参阅[隐私政策](../PRIVACY.md)。

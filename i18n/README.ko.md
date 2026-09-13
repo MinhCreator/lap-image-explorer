@@ -14,10 +14,6 @@
 Lap은 오픈 소스 기반의 '로컬 우선(local-first)' 사진 관리 도구입니다. 가족 앨범을 둘러보고, 오래된 사진을 빠르게 찾으며, 대규모 개인 미디어 라이브러리를 오프라인에서 직접 관리할 수 있도록 설계되었습니다.
 클라우드 사진 서비스의 개인정보 보호 대안으로서, 강제 업로드 없음, 로컬 AI 검색, 폴더 우선 워크플로우를 제공하며 완전히 무료로 사용할 수 있습니다.
 
-- 웹사이트: [https://julyx10.github.io/lap/](https://julyx10.github.io/lap/)
-- 데모 비디오: [https://youtu.be/RbKqNKhbVUs](https://youtu.be/RbKqNKhbVUs)
-- 개인정보 처리방침: [PRIVACY.md](../PRIVACY.md)
-
 ## Lap 다운로드
 
 [최신 릴리스 페이지](https://github.com/julyx10/lap/releases/latest)를 열고, 시스템에 맞는 파일을 다운로드하세요.
@@ -26,7 +22,8 @@ Lap은 오픈 소스 기반의 '로컬 우선(local-first)' 사진 관리 도구
 | :-- | :-- | :-- |
 | **macOS (Apple Silicon / Intel)** | `_aarch64.dmg` / `_x64.dmg` | Apple 공증 완료 |
 | **Windows 10/11 (x64 / ARM64)** | `_x64_en-US.msi` / `_arm64_en-US.msi` | 서명되지 않음 — SmartScreen이 다운로드를 차단하면 **보관**을 클릭하세요 |
-| **Linux (amd64 / arm64)** | `_amd64.deb` / `_arm64.deb` | Debian 기반 배포판용（Ubuntu, Debian, Linux Mint 등） |
+| **Linux (x64 / ARM64)** | `_amd64.deb` / `_arm64.deb` | Debian 기반 배포판용（Ubuntu, Debian, Linux Mint 등） |
+| **Linux (x64 / ARM64)** | `_amd64.AppImage` / `_aarch64.AppImage` | 파일에 실행 권한을 부여한 다음 더블 클릭하여 실행 |
 
 ### Homebrew로 macOS에 설치
 
@@ -136,11 +133,13 @@ Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:APPDATA\com.july
 
 ### Linux
 
-Debian 기반 배포판에서는 패키지를 제거하세요:
+DEB로 설치한 경우 패키지를 제거합니다:
 
 ```bash
 sudo apt remove lap
 ```
+
+AppImage로 설치한 경우 Lap을 종료하고 다운로드한 `.AppImage` 파일을 삭제합니다.
 
 그런 다음 Lap 데이터베이스, 캐시 및 설정 파일을 모두 삭제하세요:
 
@@ -186,9 +185,9 @@ Lap은 60개 이상의 사진, RAW, 비디오 포맷을 지원합니다.
 | RAW 사진 | CR2, CR3, CRW, NEF, NRW, ARW, SRF, SR2, RAF, RW2, ORF, PEF, DNG, SRW, RWL, MRW, 3FR, MOS, DCR, KDC, ERF, MEF, RAW, MDC |
 | 비디오 | MP4, MOV, M4V, MKV, AVI, FLV, TS/M2TS, WMV, WebM, 3GP/3G2, F4V, VOB, MPG/MPEG, ASF, DIVX 등. H.264 재생은 모든 플랫폼에서 지원되며, 네이티브 재생이 불가한 경우 자동으로 호환성 처리가 진행됩니다. HEVC/H.265 및 VP9은 macOS에서 네이티브 지원됩니다. |
 
-### Linux 비디오 재생 참고 사항
+### Linux 동영상 재생
 
-Linux Mint/Ubuntu/Debian 사용자는 더 원활한 비디오 재생을 위해 아래 패키지를 설치해야 합니다.
+Lap은 AppImage에서도 시스템 GStreamer 플러그인을 사용하여 동영상을 재생합니다. Ubuntu, Debian 또는 Linux Mint에서 동영상이 재생되지 않으면 다음 패키지를 설치하세요:
 
 ```bash
 sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
@@ -218,3 +217,7 @@ sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
 ## 라이선스
 
 GPL-3.0-or-later. 자세한 내용은 [LICENSE](../LICENSE)를 참조하세요.
+
+## 개인정보 보호
+
+데이터 처리와 선택적 온라인 서비스에 대한 자세한 내용은 [개인정보 처리방침](../PRIVACY.md)을 참조하세요.

@@ -9,15 +9,10 @@
   </p>
 </div>
 
-
 English | [Deutsch](i18n/README.de.md) | [Français](i18n/README.fr.md) | [Español](i18n/README.es.md) | [Português](i18n/README.pt.md) | [Русский](i18n/README.ru.md) | [简体中文](i18n/README.zh-CN.md) | [日本語](i18n/README.ja.md) | [한국어](i18n/README.ko.md)
 
 Lap is an open-source, local-first photo manager for browsing family albums, finding old photos quickly, and managing large personal media libraries offline.
 It is a privacy-focused alternative to cloud photo services: no forced upload, local AI search, folder-first workflow, and free to use.
-
-- Website: [https://julyx10.github.io/lap/](https://julyx10.github.io/lap/)
-- Demo: [https://youtu.be/RbKqNKhbVUs](https://youtu.be/RbKqNKhbVUs)
-- Privacy: [PRIVACY.md](PRIVACY.md)
 
 ## Download Lap
 
@@ -27,7 +22,8 @@ Open the [latest release page](https://github.com/julyx10/lap/releases/latest), 
 | :-- | :-- | :-- |
 | **macOS (Apple Silicon / Intel)** | `_aarch64.dmg` / `_x64.dmg` | Notarized by Apple |
 | **Windows 10/11 (x64 / ARM64)** | `_x64_en-US.msi` / `_arm64_en-US.msi` | Unsigned — if SmartScreen blocks the download, click **Keep anyway** |
-| **Linux (amd64 / arm64)** | `_amd64.deb` / `_arm64.deb` | For Debian-based distros (Ubuntu, Debian, Linux Mint, etc.) |
+| **Linux (x64 / ARM64)** | `_amd64.deb` / `_arm64.deb` | For Debian-based distros (Ubuntu, Debian, Linux Mint, etc.) |
+| **Linux (x64 / ARM64)** | `_amd64.AppImage` / `_aarch64.AppImage` | Make the file executable, then double-click to run |
 
 ### macOS with Homebrew
 
@@ -55,7 +51,7 @@ brew install --cask lap
 
 - **Flexible library browsing** by date, folder, location, camera, lens, tags, ratings, and faces, with random sorting and a small-image filter.
 - **Interactive Map View** to explore geotagged photos and videos in clusters that follow your current filters.
-- **Smart Albums** save rule-based views with custom grouping, sorting, ordering.
+- **Smart Albums** save rule-based views with custom grouping and sorting.
 - **Collections and tags** to organize selected files in bulk without moving or duplicating the originals.
 - **Local AI search** for text prompts, visual similarity, subjects, face clustering, and optional multilingual search in 50+ languages.
 - **Apple Live Photos and Google Motion Photos** with motion playback and a unified Smart Album filter.
@@ -137,11 +133,13 @@ Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:APPDATA\com.july
 
 ### Linux
 
-For Debian-based distributions, uninstall the package:
+For DEB installations, uninstall the package:
 
 ```bash
 sudo apt remove lap
 ```
+
+For AppImage installations, quit Lap and delete the downloaded `.AppImage` file.
 
 Then remove all Lap database, cache, and configuration files:
 
@@ -187,9 +185,9 @@ Lap supports 60+ photo, RAW, and video formats.
 | RAW photos | CR2, CR3, CRW, NEF, NRW, ARW, SRF, SR2, RAF, RW2, ORF, PEF, DNG, SRW, RWL, MRW, 3FR, MOS, DCR, KDC, ERF, MEF, RAW, MDC |
 | Videos | MP4, MOV, M4V, MKV, AVI, FLV, TS/M2TS, WMV, WebM, 3GP/3G2, F4V, VOB, MPG/MPEG, ASF, DIVX and more. H.264 playback is supported on all platforms, with automatic compatibility processing when native playback is unavailable. HEVC/H.265 and VP9 are natively supported on macOS. |
 
-### Linux Video Playback Notes
+### Linux Video Playback
 
-On Ubuntu/Debian/Linux Mint, install these packages for better video playback support:
+Lap uses system GStreamer plugins for video playback, including in the AppImage. If videos fail to play on Ubuntu, Debian, or Linux Mint, install:
 
 ```bash
 sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
@@ -219,3 +217,7 @@ sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
 ## License
 
 GPL-3.0-or-later. See [LICENSE](LICENSE).
+
+## Privacy
+
+Read the [Privacy Policy](PRIVACY.md) for details on data handling and optional online services.

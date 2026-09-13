@@ -14,10 +14,6 @@
 Lapは、オープンソースでローカルファーストな写真管理ツールです。家族のアルバムを閲覧したり、古い写真を素早く見つけたり、膨大な個人メディアライブラリをオフラインで管理したりするために設計されています。
 クラウド写真サービスのプライバシーに配慮した代替案として、強制アップロードなし、ローカルAI検索、フォルダーファーストのワークフローを提供し、完全に無料で使用できます。
 
-- ウェブサイト: [https://julyx10.github.io/lap/](https://julyx10.github.io/lap/)
-- デモビデオ: [https://youtu.be/RbKqNKhbVUs](https://youtu.be/RbKqNKhbVUs)
-- プライバシーポリシー: [PRIVACY.md](../PRIVACY.md)
-
 ## Lapをダウンロード
 
 [最新のリリースページ](https://github.com/julyx10/lap/releases/latest)を開き、お使いのシステムに合ったファイルをダウンロードしてください：
@@ -26,7 +22,8 @@ Lapは、オープンソースでローカルファーストな写真管理ツ�
 | :-- | :-- | :-- |
 | **macOS (Apple Silicon / Intel)** | `_aarch64.dmg` / `_x64.dmg` | Appleによる公証済み |
 | **Windows 10/11 (x64 / ARM64)** | `_x64_en-US.msi` / `_arm64_en-US.msi` | 未署名 — SmartScreenがダウンロードをブロックした場合は、**維持する**をクリックしてください |
-| **Linux (amd64 / arm64)** | `_amd64.deb` / `_arm64.deb` | Debian系ディストリビューション向け（Ubuntu、Debian、Linux Mintなど） |
+| **Linux (x64 / ARM64)** | `_amd64.deb` / `_arm64.deb` | Debian系ディストリビューション向け（Ubuntu、Debian、Linux Mintなど） |
+| **Linux (x64 / ARM64)** | `_amd64.AppImage` / `_aarch64.AppImage` | 実行権限を付与し、ダブルクリックで起動 |
 
 ### macOS with Homebrew
 
@@ -136,11 +133,13 @@ Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:APPDATA\com.july
 
 ### Linux
 
-Debianベースのディストリビューションでは、パッケージをアンインストールします：
+DEB でインストールした場合は、パッケージを削除します：
 
 ```bash
 sudo apt remove lap
 ```
+
+AppImage の場合は、Lap を終了し、ダウンロードした `.AppImage` ファイルを削除します。
 
 次に、Lapのデータベース、キャッシュ、設定ファイルをすべて削除します：
 
@@ -186,9 +185,9 @@ Lapは60以上の写真、RAW、動画形式に対応しています。
 | RAW写真 | CR2, CR3, CRW, NEF, NRW, ARW, SRF, SR2, RAF, RW2, ORF, PEF, DNG, SRW, RWL, MRW, 3FR, MOS, DCR, KDC, ERF, MEF, RAW, MDC |
 | 動画 | MP4, MOV, M4V, MKV, AVI, FLV, TS/M2TS, WMV, WebM, 3GP/3G2, F4V, VOB, MPG/MPEG, ASF, DIVX など。H.264再生は全プラットフォームでサポートされており、ネイティブ再生が利用できない場合は自動的に互換性処理が行われます。HEVC/H.265およびVP9はmacOSでネイティブサポートされています。 |
 
-### Linuxでの動画再生に関する備考
+### Linuxでの動画再生
 
-Linux Mint/Ubuntu/Debianでは、動画再生のサポートを向上させるために以下のパッケージをインストールしてください：
+Lap は AppImage を含め、動画再生にシステムの GStreamer プラグインを使用します。Ubuntu、Debian、Linux Mint で動画が再生できない場合は、以下をインストールしてください：
 
 ```bash
 sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
@@ -218,3 +217,7 @@ sudo apt install gstreamer1.0-libav gstreamer1.0-plugins-good
 ## ライセンス
 
 GPL-3.0-or-later。詳細は [LICENSE](../LICENSE) をご覧ください。
+
+## プライバシー
+
+データの取り扱いと任意のオンラインサービスについては、[プライバシーポリシー](../PRIVACY.md)をご覧ください。
